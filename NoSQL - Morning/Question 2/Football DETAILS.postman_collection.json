@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "8eb3ec64-e029-472a-9d31-d94739de7ab5",
+		"name": "Football DETAILS",
+		"description": "Stores the details of football players -:\n\n1)Player id \n2)Player name \n3)Number of goals scored in a year\n4) AGE\n\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create football player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"3\",\n  \"name\": \"Ishfaq Bhat\",\n  \"totalGoals\": 8,\n  \"age\":10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/footballdetails",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"footballdetails"
+					]
+				},
+				"description": "url -\n    http://localhost:8080/football\n\nbody -\n    {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"numberOfGoals\": 0\n    }"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Football player by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/footballdetails/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"footballdetails",
+						"1"
+					]
+				},
+				"description": "url -\n    http://localhost:8080/football/{id}\n\nwhere id is the id of the player"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete football player by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/footballdetails/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"footballdetails",
+						"1"
+					]
+				},
+				"description": "url -\n    http://localhost:8080/football/{id}\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get football players with goals greater than ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/footballdetails/goals/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"footballdetails",
+						"goals",
+						"10"
+					]
+				},
+				"description": "url -\n    http://localhost:8080/football/goals/{goal}\n\nwhere {goal} is the number of goals\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Football Players",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/footballdetails/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"footballdetails",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Age Less than 10",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/footballdetails/age/10",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"footballdetails",
+						"age",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
