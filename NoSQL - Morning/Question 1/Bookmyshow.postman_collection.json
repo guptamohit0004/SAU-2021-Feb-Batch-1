@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "3954132e-81b9-4afa-ae9b-230b9ab4902a",
+		"name": "Bookmyshow",
+		"description": "Nosql database which supports \n1)Insertion of movie\n2)Get movie by ID\n2)Deletion of movie\n3)Search movie by name\n4)Search movies by city\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insert a Movie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"city\": [\n    \"Sri Ganganagar\",\n    \"Delhi\",\n    \"Chandigarh\"\n  ],\n  \"date\": \"2021-01-15T17:01:17.181Z\",\n  \"id\": \"1\",\n  \"name\": \"Ludo\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/Bookmyshow",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Bookmyshow"
+					]
+				},
+				"description": "ulr - \n    http://localhost:8080/Bookmyshow\n\nexample body - \n{\n  \"city\": [\n    \"delhi\",\n    \"bengaluru\"\n  ],\n  \"date\": \"2021-02-15T17:01:17.181Z\",\n  \"id\": \"5\",\n  \"name\": \"Mistake\"\n}"
+			},
+			"response": [
+				{
+					"name": "Insert a Movie",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"city\": [\n    \"Sri Ganganagar\",\n    \"Delhi\",\n    \"Chandigarh\"\n  ],\n  \"date\": \"2021-01-15T17:01:17.181Z\",\n  \"id\": \"1\",\n  \"name\": \"Ludo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/Bookmyshow",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Bookmyshow"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Feb 2021 04:22:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"1\",\n    \"name\": \"Ludo\",\n    \"city\": [\n        \"Sri Ganganagar\",\n        \"Delhi\",\n        \"Chandigarh\"\n    ],\n    \"date\": \"2021-01-15T17:01:17.181+00:00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Deletion of a movie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/Bookmyshow/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Bookmyshow",
+						"5"
+					]
+				},
+				"description": "url pattern - \n    http://localhost:8080/Bookmyshow/{id}\nwhere {id} is the id of the movie to be deleted"
+			},
+			"response": []
+		},
+		{
+			"name": "Get movie by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Bookmyshow/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Bookmyshow",
+						"1"
+					]
+				},
+				"description": "url - \n    http://localhost:8080/Bookmyshow/{id}\nwhere {id} is the doc id of the record"
+			},
+			"response": []
+		},
+		{
+			"name": "Search movie by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Bookmyshow/movie/Ludo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Bookmyshow",
+						"movie",
+						"Ludo"
+					]
+				},
+				"description": "url-\n    http://localhost:8080/Bookmyshow/movie/{movie}\n\nwhere {movie} is the name of the movie"
+			},
+			"response": []
+		},
+		{
+			"name": "Get movie names by city",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Bookmyshow/city/Delhi",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Bookmyshow",
+						"city",
+						"Delhi"
+					]
+				},
+				"description": "url -\n    http://localhost:8080/Bookmyshow/city/{city}\n\nwhere {city} is the name of the city"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
