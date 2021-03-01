@@ -1,0 +1,142 @@
+<hr />
+
+<button
+  style="margin: 10px"
+  mat-raised-button
+  (click)="addsession()"
+  color="accent"
+>
+  Add New Session
+</button>
+
+<mat-card
+  style="margin: 10px; width: 400px"
+  *ngFor="let session of sessionItems"
+>
+  <mat-card-title>{{ session.sessionName }}</mat-card-title>
+  <mat-card-content> By- {{ session.instructorName }}</mat-card-content>
+  <mat-card-actions>
+    <button
+      style="margin: 10px"
+      mat-raised-button
+      color="primary"
+      (click)="updateSelected(session)"
+      mat-button
+    >
+      View Details
+    </button>
+    <button
+      style="margin: 10px"
+      mat-raised-button
+      color="accent"
+      (click)="updateeditSession(session)"
+      mat-button
+    >
+      Edit Details
+    </button>
+    <button
+      style="margin: 10px"
+      mat-raised-button
+      color="warn"
+      (click)="deletesession(session)"
+      mat-button
+    >
+      Delete
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<div *ngIf="editSessionItem">
+  <div
+    style="
+      position: fixed;
+      top: 20%;
+      left: 35%;
+      padding-left: 5px;
+      width: 100px;
+    "
+  >
+    <form [formGroup]="sessionForm">
+      <mat-form-field appearance="fill">
+        <mat-label>{{
+          editSessionItem.sessionName
+            ? editSessionItem.sessionName
+            : "Session Name"
+        }}</mat-label>
+        <input
+          matInput
+          placeholder="{{ editSessionItem.sessionName }}"
+          formControlName="sessionName"
+        /> </mat-form-field
+      ><br />
+      <mat-form-field appearance="fill">
+        <mat-label>{{
+          editSessionItem.instructorName
+            ? editSessionItem.instructorName
+            : "Instructor Name"
+        }}</mat-label>
+        <input
+          matInput
+          placeholder="{{ editSessionItem.instructorName }}"
+          formControlName="instructorName"
+        /> </mat-form-field
+      ><br />
+      <mat-form-field appearance="fill">
+        <mat-label>{{
+          editSessionItem.description
+            ? editSessionItem.description
+            : "Session Description"
+        }}</mat-label>
+        <input
+          matInput
+          placeholder="{{ editSessionItem.description }}"
+          formControlName="description"
+        /> </mat-form-field
+      ><br />
+      <mat-form-field appearance="fill">
+        <mat-label>{{
+          editSessionItem.date ? editSessionItem.date : "Session Date"
+        }}</mat-label>
+        <input
+          matInput
+          placeholder="{{ editSessionItem.date }}"
+          formControlName="date"
+        /> </mat-form-field
+      ><br />
+      <button
+        style="margin: 10px"
+        mat-raised-button
+        (click)="editSession()"
+        color="accent"
+        type="button"
+      >
+        Edit Session
+      </button>
+    </form>
+  </div>
+</div>
+<div *ngIf="selectedSessionItem">
+  <div style="position: fixed; top: 20%; left: 35%; padding-left: 5px">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Session Details:</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          <b>Session Name</b>: {{ selectedSessionItem.sessionName | titlecase }}
+        </p>
+        <p>
+          <b>Session By</b>:
+          {{ selectedSessionItem.instructorName | titlecase }}
+        </p>
+        <p>
+          <b>Session Description</b>:
+          {{ selectedSessionItem.description | titlecase }}
+        </p>
+        <p>
+          <b>Session Date</b>: {{ selectedSessionItem.date | date: "fullDate" }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

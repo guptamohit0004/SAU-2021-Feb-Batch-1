@@ -1,0 +1,29 @@
+<div>
+  <form [formGroup]="sessionForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Session Name</mat-label>
+      <input matInput formControlName="sessionName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Instructor Name</mat-label>
+      <input matInput formControlName="instructorName" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Session Description</mat-label>
+      <input matInput formControlName="description" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Session Date</mat-label>
+      <input matInput formControlName="date" />
+    </mat-form-field>
+    <button
+      style="margin: 10px"
+      mat-raised-button
+      (click)="addToList()"
+      color="accent"
+    >
+      Add New Session
+    </button>
+  </form>
+</div>
