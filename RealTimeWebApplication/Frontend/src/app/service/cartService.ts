@@ -19,16 +19,17 @@ export class cartService {
             return;
         }
     }
-    this.cart.push({...product,itemQuantity:1})
+    this.cart.push({...product,itemsBooked:1})
     this.updateResult()
   }
      addItem(product: any) {
      this.cart.forEach((item, index) => {
       if (item.itemId== product.itemId) {
-        if(this.cart[index].itemQuantity < item.totalItems)
-         this.cart[index].itemQuantity++
+        console.log(item, product);
+        if(this.cart[index].itemsBooked < item.itemQuantity)
+         this.cart[index].itemsBooked++
         else
-         alert(`No More ${product.name} Available`);
+         alert(`No More ${product.itemName} Available`);
       }
     });
     this.updateResult()
@@ -36,8 +37,8 @@ export class cartService {
    deleteItem(product: any) {
      this.cart.forEach((item, index) => {
       if (item.itemId== product.itemId) {
-        if(this.cart[index].itemQuantity>=1)
-        this.cart[index].itemQuantity--
+        if(this.cart[index].itemsBooked>=1)
+        this.cart[index].itemsBooked--
       }
     });
     this.updateResult()
@@ -46,8 +47,8 @@ export class cartService {
     let totalItems=0;
     let totalPrice=0;
     this.cart.forEach((item,index)=>{
-        totalItems=totalItems+item.itemQuantity;
-        totalPrice=totalPrice+(item.itemQuantity*item.price)
+        totalItems=totalItems+item.itemsBooked;
+        totalPrice=totalPrice+(item.itemsBooked*item.itemPrice)
     })
     this.totalCart={
       totalPrice:totalPrice,

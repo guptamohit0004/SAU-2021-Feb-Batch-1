@@ -30,6 +30,10 @@ export class CartComponent implements OnInit {
    placeOrder(){
       const headers = { 'content-type': 'application/json'}
       const body=JSON.stringify(this.cart);
-      this.http.post('http://localhost:8080/update', body,{'headers':headers})
+      this.http.post('http://localhost:8080/update', body,{'headers':headers}).subscribe(data => {
+        console.log(data);
+      })
+      console.log(body);
+      console.log(headers);
    }
 }

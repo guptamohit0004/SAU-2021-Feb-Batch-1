@@ -7,12 +7,12 @@
   *ngFor="let product of cart"
   >
   <mat-card-header>
-    <mat-card-title> Name of Item : {{product.name}}</mat-card-title>
-    <mat-card-subtitle>Price Per Item :{{product.price}}</mat-card-subtitle>
+    <mat-card-title> Name of Item : {{product.itemName}}</mat-card-title>
+    <mat-card-subtitle>Price Per Item :{{product.itemPrice}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <p>
-      Number of items in cart : {{product.itemQuantity}}
+      Number of items in cart : {{product.itemsBooked}}
     </p>
   </mat-card-content>
   <mat-card-actions>
@@ -22,7 +22,7 @@
 </mat-card>
 
 <div *ngIf="totalCart">
-  <div style="position: fixed; top: 20%; left: 35%; padding-left: 5px">
+  <div style="position: absolute; top: 50%; left: 35%; padding-left: 5px">
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title> Final Cart Details:</mat-card-title>

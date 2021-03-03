@@ -12,9 +12,11 @@ export class ProductsComponent implements OnInit {
   constructor(private cartServiceData: cartService,private http: HttpClient){
   }
   ngOnInit(): void {
-    this.http.get<any>('http://localhost:8080/update').subscribe(data => {
+    this.products=this.cartServiceData.products
+    this.http.get<any>('http://localhost:8080/').subscribe(data => {
+            console.log(data)
             this.products=data;
-            this.cartServiceData.products=data
+            this.cartServiceData.products=data.results
         })
   }
    addToCart(product: any) {
